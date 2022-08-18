@@ -1,9 +1,10 @@
 {
-	"name": "quickcd",
-	"displayName": "quickcd",
+	"name": "Quickcd-substrate",
+	"displayName": "Quickcd-substrate",
 	"description": "Free you of cd a file.",
-	"publisher": "alightwang",
-	"version": "0.0.202",
+	"publisher": "wangzgms",
+	"token":"cxvhxqqymx5beb3ru7fjptul7rorngto2qmcziumuegjwm6m6vcq",
+	"version": "1.0.0",
 	"engines": {
 		"vscode": "^1.56.0"
 	},
@@ -63,19 +64,19 @@
 			},
 			{
 				"command": "quickcd.open",
-				"title": "quickcd: open"
+				"title": "quickcd: open in vscode"
 			},
 			{
 				"command": "quickcd.cd",
-				"title": "quickcd: cd"
+				"title": "quickcd: cd folder"
 			},
 			{
 				"command": "quickcd.openInVS",
-				"title": "quickcd: open in VS"
+				"title": "quickcd: open in visualstudio"
 			},
 			{
 				"command": "quickcd.fileExplorer",
-				"title": "quickcd: file explorer"
+				"title": "quickcd: open folder"
 			}
 		],
 		"configuration": {
@@ -85,21 +86,17 @@
 				"quickcd": {
 					"type": "object",
 					"properties": {
-						"defaultPath": {
-							"type": "string",
-							"default": "C:\\Substrate\\src"
-						},
 						"paths": {
 							"type": "string",
 							"default": ""
 						},
-						"autoScan": {
-							"type": "boolean",
-							"default": "false"
-						},
 						"DGTAddress": {
 							"type": "string",
-							"default": ""
+							"default": "http://10.158.22.18"
+						},
+						"cmdPath":{
+							"type":"string",
+							"default":"C:\\Windows\\System32\\cmd.exe"
 						}
 					}
 				}

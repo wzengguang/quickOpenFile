@@ -5,7 +5,7 @@ import { OpenFileManager } from './openFileManager';
 export function activate(context: vscode.ExtensionContext) {
 	const manager = new OpenFileManager();
 	context.subscriptions.push(vscode.commands.registerCommand('quickcd.open', async () => {
-		await manager.open();
+		await manager.openInVsCode();
 	}));
 
 	context.subscriptions.push(vscode.commands.registerCommand('quickcd.default_terminal', () => {
@@ -24,7 +24,7 @@ export function activate(context: vscode.ExtensionContext) {
 	}));
 
 	context.subscriptions.push(vscode.commands.registerCommand('quickcd.openInVS', async () => {
-		await manager.openInVS();
+		await manager.openInVisualStudio();
 	}));
 
 	vscode.workspace.onDidChangeConfiguration(() => {
