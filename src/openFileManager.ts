@@ -74,11 +74,45 @@ export class OpenFileManager {
 
     public async openInVisualStudio() {
         let physicDir = await this.getSelectedToPhysicPath();
-        if (physicDir && physicDir.endsWith("proj")) {
-            let parent = path.dirname(physicDir);
-            vscode.window.activeTerminal?.sendText("cd " + parent);
-            vscode.window.activeTerminal?.sendText(physicDir.split(this.pathSep).pop() as string);
+        if (physicDir) {
+            let p = this.getProjectFileFromPath(physicDir);
+            if (p == '') {
+                return;
+            }
+            vscode.window.activeTerminal?.sendText("cd " + path.dirname(p));
+            vscode.window.activeTerminal?.sendText(p.split(this.pathSep).pop() as string);
         }
+    }
+
+    public async GetProjectFilePath() {
+        let physicDir = await this.getSelectedToPhysicPath();
+        const pPath = this.getProjectFileFromPath(physicDir, 3);
+        pPath.replace(this.activeDir, '');
+    }
+
+    private getProjectFileFromPath(physicDir: string, recursive: number = 3): string {
+        if (physicDir.endsWith("proj")) {
+            return physicDir;
+        }
+
+        const folder = fs.lstatSync(physicDir).isDirectory() ? physicDir : path.dirname(physicDir);
+        const files = fs.readdirSync(folder);
+        for (let index = 0; index < files.length; index++) {
+            const element = files[index];
+            if (element.endsWith("proj")) {
+                return path.join(folder, element);
+            }
+        }
+
+        if (recursive > 0) {
+            const dir = path.dirname(folder);
+            const p = this.getProjectFileFromPath(path.dirname(folder), recursive--);
+            if (p != '') {
+                return p;
+            }
+        }
+
+        return '';
     }
 
     public async revealInFileExplorer() {

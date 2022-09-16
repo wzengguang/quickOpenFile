@@ -1,10 +1,10 @@
 {
-	"name": "Quickcd-substrate",
-	"displayName": "Quickcd-substrate",
+	"name": "cd-substrate",
+	"displayName": "cd-substrate",
 	"description": "Free you of cd a file.",
-	"publisher": "wangzgms",
+	"publisher": "alightwang",
 	"token":"cxvhxqqymx5beb3ru7fjptul7rorngto2qmcziumuegjwm6m6vcq",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"engines": {
 		"vscode": "^1.56.0"
 	},
@@ -17,7 +17,7 @@
 	},
 	"activationEvents": [
 		"onCommand:quickcd.open",
-		"onCommand:quickcd.default_terminal",
+		"onCommand:quickcd.getProjectFilePath",
 		"onCommand:quickcd.terminal",
 		"onCommand:quickcd.cd",
 		"onCommand:quickcd.openInVS",
@@ -46,18 +46,10 @@
 					"command": "quickcd.fileExplorer",
 					"group": "quickcd@5",
 					"when": "editorTextFocus"
-				},
-				{
-					"command": "quickcd.default_terminal",
-					"group": "quickcd@6"
 				}
 			]
 		},
 		"commands": [
-			{
-				"command": "quickcd.default_terminal",
-				"title": "quickcd: default terminal"
-			},
 			{
 				"command": "quickcd.terminal",
 				"title": "quickcd: create terminal"
