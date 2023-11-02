@@ -4,7 +4,7 @@
 	"description": "Free you of cd a file.",
 	"publisher": "alightwang",
 	"token":"cxvhxqqymx5beb3ru7fjptul7rorngto2qmcziumuegjwm6m6vcq",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"engines": {
 		"vscode": "^1.56.0"
 	},

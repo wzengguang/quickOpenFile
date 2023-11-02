@@ -67,6 +67,14 @@ export class OpenFileManager {
                 if (!stats.isDirectory()) {
                     let uri = Uri.file(selection);
                     await vscode.commands.executeCommand('vscode.open', uri);
+                }else{
+                    let p = this.getProjectFileFromPath(selection);
+                    if (p == '') {
+                        return;
+                    }  
+                    
+                    let uri = Uri.file(p);
+                    await vscode.commands.executeCommand('vscode.open', uri);
                 }
             });
         }

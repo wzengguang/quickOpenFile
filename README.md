@@ -30,16 +30,6 @@ src是substrate项目的根目录。
  如果你有多个 substrate 项目目录，可配置成：   
  C:\Substrate\src;C:\Substrate1\src;C:\Substrate2\src   
  以 ; 分隔.
-## 配置DGT的远程地址，
-DGTAddress= http://10.158.22.18。
-从本地生成的 vs-manifest.json 找不到路径时会自动去远程查找。
-## 终端
-如果你不使用 create termianl 命令创建终端并使该终端处于活动状态，那么右键菜单执行时默认的根目录是配置的 defaultPath. 
-如果你通过 create termianl 创建终端，右键菜单执行时默认的根目录是创建终端对应的目录。
-注意：不能修改创建的终端的名字，否则会导致程序把当前目录当成默认的目录的错误。
-## 第一次使用
-当第一次使用时，会在你substrate 项目目录的 src 文件夹所在的目录生成 vs-manifest.json 文件。  
-如果想手动添加 .csproj 文件所在目录，可在 vs-manifest.json 文件添加。但不要添加在数组的第一个位置。    
 
 ## 路径感知
 - 根据光标所在的位置（闪烁），根据上下文件自动感知出要执行的目录或文件，如果你手动选择一段文本，自动感知不起作用。
@@ -74,13 +64,6 @@ sources\dev\common\src\Net\AadClient\AADGroup.cs
 sources/dev/common/src/Net/
 - 还可以自动排除要识别前、后的干扰文本：直接识别到：Microsoft.Exchange.Net.AadClient.csproj
 asdasdas Microsoft.Exchange.Net.AadClient.csproj asdasdwa      
-
-## 其它智能提示
-Microsoft.Exchange.Entities.OnlineMeetings.dll 
-比如这个dll，找不到对应的项目文件名是，会提示你哪些文件名和它比较像。
-## 自动扫描
-当你使用该插件的时候，每一天会自动扫描，重新生成vs-manifest.json。如果想手动扫描一次，请删掉文件。
-可以在配置文件中配置 autoScan=false,禁止自动扫描。
 
 # Links
 * [Marketplace](https://marketplace.visualstudio.com/items?itemName=alightwang.quickcd)
